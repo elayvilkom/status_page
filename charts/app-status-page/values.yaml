@@ -1,0 +1,30 @@
+replicas: 2
+servicetype: LoadBalancer
+posgreshost: elaydb0330.cx248m4we6k7.us-east-1.rds.amazonaws.com
+ingress:
+  # -- Enable an ingress resource for the Argo CD server
+  enabled: true
+  # -- Specific implementation for ingress controller. One of `generic`, `aws` or `gke`
+  ## Additional configuration might be required in related configuration sections
+  controller: generic
+  # -- Additional ingress labels
+  labels: {}
+  # -- Additional ingress annotations
+  ## Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#option-1-ssl-passthrough
+  annotations:
+    #nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    # nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+
+  # -- Defines which ingress controller will implement the resource
+  ingressClassName: "nginx"
+
+  # -- Argo CD server hostname
+  # @default -- `""` (defaults to global.domain)
+  hostname: "noa-argocd.local"
+
+  # -- The path to Argo CD server
+  path: /
+
+  # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
+  pathType: Prefix

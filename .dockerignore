@@ -1,0 +1,35 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.so
+
+# Django static/media files (optional – תלוי אם אתה אוסף אותם בזמן הריצה או לא)
+*.sqlite3
+*.log
+
+# Virtual environments
+venv/
+.env
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# OS metadata
+*.bak
+*.tmp
+
+# Docker and Git metadata
+.dockerignore
+.git
+.gitignore
+
+# Office files
+*.docx
+*.xlsx
+*.pdf

@@ -1,0 +1,13 @@
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: svc-lb-app
+#spec:
+#  selector:
+#    app: main
+#  ports:
+#    - name: port80
+#      protocol: TCP
+#      port: 80
+#      targetPort: 8000
+#  type: {{ .Values.servicetype }}
