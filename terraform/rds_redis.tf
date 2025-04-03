@@ -1,15 +1,3 @@
-resource "aws_eks_addon" "ebs_csi" {
-  cluster_name = module.eks.cluster_name
-  addon_name   = "elay-noa-aws-ebs-csi-driver"
-  addon_version = "v1.29.0-eksbuild.1" # אפשר לבדוק גרסה עדכנית
-
-  service_account_role_arn = module.eks.eks_managed_node_groups["statuspage_app_nodes"].iam_role_arn
-
-  tags = {
-    owner = "elayvilkom"
-  }
-}
-
 resource "aws_elasticache_subnet_group" "redis_subnet_group" {
   name       = "elay-noa-redis-subnet-group"
   subnet_ids = [aws_subnet.private_subnet.id, aws_subnet.private_subnet1.id]
